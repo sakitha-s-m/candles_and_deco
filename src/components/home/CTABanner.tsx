@@ -26,7 +26,10 @@ export default function CTABanner() {
                         Explore our full collection of handcrafted candles and home accessories designed to bring warmth and beauty to every corner.
                     </p>
                     <Link href="/shop">
-                        
+                        <button className="inline-flex items-center justify-center gap-2 bg-secondary text-secondary-foreground whitespace-nowrap shadow-sm hover:bg-secondary/80 font-body text-xs tracking-widest uppercase h-12 px-10 rounded-full transition-colors">
+                            Shop the Collection
+                            <ArrowRight className="w-4 h-4 ml-2" />
+                        </button>
                     </Link>
                 </div>
                 </motion.div>
