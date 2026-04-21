@@ -2,12 +2,12 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import { supabase } from '@/lib/supabase'
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    const featured = req.query.featured == "true"
+    const filterKey = req.query.filterKey as string;
 
     let query = supabase.from("products").select("*")
 
-    if (featured) {
-        query = query.eq("is_featured", true)
+    if (filterKey) {
+        query = query.eq(filterKey, true)
     }
 
     const { data, error } = await query
