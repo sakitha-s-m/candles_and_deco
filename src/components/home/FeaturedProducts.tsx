@@ -19,7 +19,7 @@ export default function FeaturedProducts() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch("/api/products")
+        fetch("/api/products?featured=true")
             .then(r => r.json())
             .then(data => {
                 setProducts(data)
