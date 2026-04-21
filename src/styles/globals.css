@@ -12,4 +12,5 @@
   --color-muted-foreground: hsl(30.43 17% 33%);
   --color-primary: hsl(25 30% 28%);
   --color-primary-foreground: hsl(30 25% 97%);
+  --color-muted: hsl(30 15% 94%)
 }
