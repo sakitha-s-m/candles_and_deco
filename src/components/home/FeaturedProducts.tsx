@@ -11,23 +11,30 @@ interface Product {
     image_url: string;
     category: string;
     is_bestseller?: boolean;
+    is_featured?: boolean;
 }
 
-export default function FeaturedProducts() {
+interface FeaturedProductsProps {
+    title?: string;
+    filterKey?: string;
+}
+
+export default function FeaturedProducts({ title = "Featured Products", filterKey = "is_featured" }) {
 
     const [products, setProducts] = useState<Product[]>([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch("/api/products?featured=true")
+        fetch(`/api/products?filterKey=${filterKey}`)
             .then(r => r.json())
             .then(data => {
                 setProducts(data)
                 setLoading(false)
             })
-    }, [])
+    }, [filterKey])
 
     if (loading) return <p>Loading...</p>
+    if (products.length === 0) return null;
 
     return (
         <section className="py-24 lg:py-32">
@@ -44,7 +51,7 @@ export default function FeaturedProducts() {
                             Curated
                         </p>
                         <h2 className="font-heading text-4xl md:text-5xl font-light">
-                            Featured Products
+                            {title}
                         </h2>
                     </div>
                     <Link

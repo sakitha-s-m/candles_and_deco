@@ -11,8 +11,9 @@ export default function Home() {
   return (
     <AppLayout>
       <HeroSection />
-      <FeaturedProducts />
+      <FeaturedProducts title="Featured Products" filterKey="is_featured" />
       <CategorySection />
+      <FeaturedProducts title="Best Sellers" filterKey="is_bestseller" />
       <TestimonialsSection />
       <CTABanner />
     </AppLayout>

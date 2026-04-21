@@ -57,7 +57,7 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
                     </button>
 
                     {product.is_bestseller && (
-                        <span>
+                        <span className="absolute top-3 left-3 bg-primary text-primary-foreground font-body text-[10px] tracking-widest uppercase px-3 py-1 rounded-full">
                             Best Seller
                         </span>
                     )}
